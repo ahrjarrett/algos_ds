@@ -15,7 +15,7 @@ Use [codeshare.io](codeshare.io) for remote pairing.
 
 #### Constructor Properties (per instance)
 
-```
+```javascript
 function Building(floors) {
   this.floors = floors
 }
@@ -60,4 +60,31 @@ myData.size // => 2
 ```
 
 
-### Stacks & Queues
+## Stacks & Queues
+
+<details>
+  <summary> Ingredients to Learn Data Structures </summary>
+
+  1. Learn Data Structure Concept
+    * Draw it
+    * Create the API/operation methods
+  2. Build the Data Structure
+    * Pseudocode the implementation
+    * Code the data structure constructor
+  3. Utilize the Data Structure
+    * Put your data structure to work!
+    * Pair it with an algorithm if needed
+  4. Understand Data Structure
+    * What is the time complexity?
+    * How can you optimize?
+
+</details>
+
+
+#### Concept: Stacks
+
+**“LIFO”:** LAST item added INTO the stack will be the FIRST one taken OUT of the stack.
+
+-> aka “pushed onto” and “popped off”
+
+Think of a stack of pancakes. You put new pancakes on top, and you have to eat that one first.
