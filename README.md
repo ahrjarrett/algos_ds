@@ -6,3 +6,7 @@
 * Day 4: Hash Tables & Hashing
 * Day 5: Advanced Applications & Optimizations
 
+### Exercises:
+
+* Day 1: Implemented Stack & Queue; there are still exercises at the bottom of Queue.js
+
