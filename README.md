@@ -10,3 +10,4 @@
 
 * Day 1: Implemented Stack & Queue; there are still exercises at the bottom of Queue.js
 
+* Day 2: Stopped at lunch after elementary sorting algorithms. 

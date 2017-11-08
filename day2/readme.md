@@ -1,6 +1,6 @@
-# Day 2: Time Complexity, Sorting
+###### Day 2: Time Complexity, Sorting
 
-## Intro to Time Complexity
+# Intro to Time Complexity
 
 [Slides](http://slides.com/bgando/sorting#/)
 
@@ -149,7 +149,7 @@ Big O notation gives us an industry-standard language to discuss the performance
 ```javascript
 function countChars = function(str) {
   return str.length
-  // because strings are immutable, computing the length is actually just a property lookup!
+  // because strings are immutable, computing the length is actually just a property lookup — cool!
 }
 // O(1) — Constant Time
 ```
@@ -165,6 +165,94 @@ myList // => ['¡hola!', 'moin!']
 ```
 
 
-## Elementary Sorting
+# Elementary Sorting
 
-### Bubble Sorting
+[Awesome interactive visualization comparing different sorting algorithms](http://rebootjeff.github.io/comparisonsort/)
+
+## Bubble Sorting
+
+### Concept: Bubble Sort
+
+Bubble sort is a comparison sort that repeatedly swaps adjacent elements that are out of order
+
+Values “bubble up” to the top of the data structure.
+
+### Interface: Bubble Sort
+
+1. Sorting Function
+
+`bubbleSort(list) —> a sorted list`
+
+* loops through list
+* compares adjacent elements
+* swaps higher item toward the end
+
+Pseudocode: Bubble Sort
+
+```
+// bubbleSort(list)
+for k, loop through 1 to n-1
+  for i loop 0 to n-2
+  if A[i] is greater than A[i+1]
+    swap A[i] with A[i+1]
+```
+
+We could also easily write this use a while loop.
+
+
+[What happens if we use a polynomial expander?](https://www.mathportal.org/calculators/polynomials-solvers/polynomials-expanding-calculator.php)
+
+```
+F(n) = (n-1) * (n-1) * c
+```
+
+Turns in to:
+
+```
+F(n) = c(n^2) - 2cn + 1
+```
+
+What is the *highest* order of this function? All we really care about is that this implementation of bubbleSort is `n²`.
+
+
+### Optimize: Bubble Sort
+
+We don’t need to loop all the way to the end every time because the right side of the array becomes sorted every loop.
+
+But for all intents and purposes, this is still O(n^2) *(wait really?)*
+
+Bubble Sort...
+
+**Time Complexity** = O(n^2)
+**Space Complexity** = O(1)
+
+
+### Stability
+
+We’ve only talked about how fast algorithms are. But what about their *stability*?
+
+A sorting algorithm is stable if it preserves the order of *equal* items.
+
+**Note:** Any comparison-based sorting algorithm can be made stable by using position as a criteria when two elements are compared.
+
+Prompt: I want bikes sorted by price (ascending). Given equal prices, I want lighter option to be first.
+
+
+Bike A $600 20 lbs | Bike B $500 30 lbs
+Bike B $500 30 lbs | Bike C $500 35 lbs
+Bike C $500 35 lbs | Bike A $600 20 lbs
+
+(I’ve thought about this next part a lot before!)
+
+The list is already sorted by weight (ascending). I just need to sort it by price. But an unstable sort based on price could “unsort” weights.
+
+### Adaptability
+
+A sorting algorithm is “adaptive” if it becomes more efficient (i.e., if its complexity is reduced) when the input is already *nearly* sorted.
+
+That last part is important, but only made sense on the 2nd or 3rd read.
+
+
+## Selection Sort
+
+Selects the smallest element in an array, pushes it into a new array.
