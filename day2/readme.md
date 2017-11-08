@@ -27,7 +27,7 @@ How does the work increase as our input grows? That is the speed of our algorith
 |   3                 | Sorted List, find 1st and last |
 
 
-We can represent time as shape using Big O Notation.
+We can represent time as shape using [Big O Notation](https://en.wikipedia.org/wiki/Big_O_notation). This is a notation that describes the limiting behavior of a function when the argument tends toward a particular value or infinity. This is known as the Order of the function and is closely related to *o*, Ω, ω, and Θ.
 
 | Big-O, name        | # of Operations     | Algorithm                      |
 | ------------------ | ------------------- | ------------------------------ |
@@ -36,11 +36,16 @@ We can represent time as shape using Big O Notation.
 | O(1), constant     |   3                 | Sorted List, find 1st and last |
 
 
-SUPER fast                                                   SUPER SLooooooW
+:rabbit2: SUPER fast  ————————————----------——––––––––> SUPER SLooooooW :turtle:
 
 | Name         | constant | logarithmic | linear | quadratic | exponential |
 | ------------ | -------- | ----------- | ------ | --------- | ----------- |
 | **Notation** | O(1)     | O(logn)     | O(n)   | O(n^2)    | O(k^n)      |
 
+
+Anything past linear is considered a bad algorithm. You really don’t want to be in quadratic or exponential time.
+
+
+### Logarithmic Time
 
 __From Wikipedia on logarithm:__ “In mathematics, the logarithm is the inverse operation to exponentiation, just as division is the inverse of multiplication and vice versa.”
