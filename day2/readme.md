@@ -255,4 +255,34 @@ That last part is important, but only made sense on the 2nd or 3rd read.
 
 ## Selection Sort
 
-Selects the smallest element in an array, pushes it into a new array.
+Selects the smallest element in an array, pushes it into a new array. (n^2)
+
+## Insertion Sort
+
+Selects the first element in an array, pushes it into a new array. As each new element is added, insert the new element in the correct order.
+
+[1, 6, 8, 2, 5]
+[]
+
+## Insertion Sort (in place)
+
+Selects the first element in an array, considers that our sorted list of size 1. As each new element is added, insert the new element in the correct order by swapping in-place.
+
+```javascript
+[1, 6, 8, 2, 5]
+// becomes:
+
+[1]
+// Is 6 greater than 1? Yes.
+[1, 6]
+// Is 8 greater than 1? Yes. Is 8 greater than 6? Yes.
+[1, 6, 8]
+// Is two greater than 1? Yes. Is 2 greater than 6? No.
+[1, 2, 6, 8]
+// Is 5 greater than 1? Yes. Is 5 greater than 2? Yes. Is 5 greater than 6? No.
+[1, 2, 5, 6, 8]
+```
+
+
+
+BOOKMARK: Exercises for Elementary Sorting
