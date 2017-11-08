@@ -30,21 +30,21 @@ stringStack.prototype.size = function() {
 var myWeeklyMenu = new stringStack()
 
 /* TESTS */
-console.log(myWeeklyMenu.size())
-console.log(myWeeklyMenu.push('RedBeans'))
-console.log(myWeeklyMenu)
-console.log(myWeeklyMenu.push('Stuff'))
-console.log(myWeeklyMenu)
-console.log(myWeeklyMenu.push('Pickles'))
-console.log(myWeeklyMenu)
-console.log(myWeeklyMenu.size())
-console.log(myWeeklyMenu.pop())
-console.log(myWeeklyMenu)
-console.log(myWeeklyMenu.size())
-console.log(myWeeklyMenu.pop())
-console.log(myWeeklyMenu)
-console.log(myWeeklyMenu.size())
-console.log(myWeeklyMenu)
+//console.log(myWeeklyMenu.size())
+//console.log(myWeeklyMenu.push('RedBeans'))
+//console.log(myWeeklyMenu)
+//console.log(myWeeklyMenu.push('Stuff'))
+//console.log(myWeeklyMenu)
+//console.log(myWeeklyMenu.push('Pickles'))
+//console.log(myWeeklyMenu)
+//console.log(myWeeklyMenu.size())
+//console.log(myWeeklyMenu.pop())
+//console.log(myWeeklyMenu)
+//console.log(myWeeklyMenu.size())
+//console.log(myWeeklyMenu.pop())
+//console.log(myWeeklyMenu)
+//console.log(myWeeklyMenu.size())
+//console.log(myWeeklyMenu)
 
 
 // Stack, now implemented as an Object:
@@ -54,7 +54,7 @@ function Stack(capacity) {
   this._count = 0
 }
 
-Stack.prototype.push(value) {
+Stack.prototype.push = function(value) {
   if (this._count < this._capacity) {
     this._storage[this._count++] = value
     return this._count
@@ -65,6 +65,8 @@ Stack.prototype.push(value) {
 Stack.prototype.pop = function () {
   var value = this._storage[--this._count]
   delete this._storage[this._count]
+  if (this._count < 0) this._count = 0
+  return value
 }
 
 Stack.prototype.peek = function () {
@@ -74,3 +76,5 @@ Stack.prototype.peek = function () {
 Stack.prototype.count = function () {
   return this._count
 }
+
+module.exports = Stack

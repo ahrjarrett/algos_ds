@@ -155,3 +155,31 @@ Example usage:
   * `enqueue(value) // adds value to the back, returns size`
   * `deque() // removes value from the front, returns value`
   * `size() // returns size of the queue as an integer`
+
+
+## Recursion
+
+Recipe:
+1. Identify base case(s)
+2. Identify recursive case(s)
+3. Return where appropriate
+4. Write procedures for each case that bring you closer to your base case(s)
+
+#### Common Patterns for Recursion
+* Wrapper Functions
+* Passing Memos/Accumulators
+
+** Wrapper Functions **
+Wrapper functions are nice because you can wrap a recursive function, and set up intermediate values within the function. For example, instead of saving a counter (or some value you want to keep track of without passing that value as an argument to the fn itself) on global scope, you can declare an initial value within the wrapper function, outside the context of the inner function, and mutate that value throughout the calls to the inner fn.
+
+*Example:*
+```javascript
+function runRecursiveLoop(start, end) {
+  // counter is an example of an intermediate value:
+  var counter = 0
+  function recurse(i) {
+    ...
+  }
+  return recurse(start)
+}
+```
