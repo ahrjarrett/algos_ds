@@ -49,3 +49,7 @@ Anything past linear is considered a bad algorithm. You really don’t want to b
 ### Logarithmic Time
 
 __From Wikipedia on logarithm:__ “In mathematics, the logarithm is the inverse operation to exponentiation, just as division is the inverse of multiplication and vice versa.”
+
+For visualization: It’s helpful to think about what happens if you double the size of the input: for quadratic, if you’ve doubled the input, you’ve quadrupled the number of operations; for lineary, if you’ve doubled the input, you’ve doubled the number of operations; and for constant, the number of operations does not change.
+
+![Big O Graph](https://github.com/ahrjarrett/algos_ds/blob/master/day2/big-oh-graph.jpg)
