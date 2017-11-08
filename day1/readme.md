@@ -1,5 +1,8 @@
 # Day 1: Recursion & Object-Oriented JS
 
+**TODO:**
+- Implement Queue using two Stacks (11/07/17)
+
 
 ## Pair Programming
 
@@ -82,15 +85,17 @@ myData.size // => 2
 </details>
 
 
-#### Concept: Stacks
+### Concept: Stacks
 
 **“LIFO”:** LAST item added INTO the stack will be the FIRST one taken OUT of the stack.
 
--> aka “pushed onto” and “popped off”
+—-> aka “push on” and “pop off”
+
+*My own mnemonic device:* “Stacks for LIFO” (AHRJ)
 
 Think of a stack of pancakes. You put new pancakes on top, and you have to eat that one first.
 
-A familiar use case is the call stack. Each piece of the stack is called a stack frame, which is basically the instance of the function in the stack.
+A familiar use case is the **call stack**. Each piece of the stack is called a stack frame, which is basically the instance of the function in the stack.
 
 #### Interface: Stacks
 
@@ -126,7 +131,7 @@ var myWeeklyMenu = new Stack()
 myWeeklyMenu.push('RedBeans')
 ```
 
-#### Concept: Queues
+### Concept: Queues
 
 "FIFO": The FIRST item added IN to the queue will be the FIRST one taken OUT of the queue.
 
@@ -169,7 +174,7 @@ Recipe:
 * Wrapper Functions
 * Passing Memos/Accumulators
 
-** Wrapper Functions **
+**Wrapper Functions**
 Wrapper functions are nice because you can wrap a recursive function, and set up intermediate values within the function. For example, instead of saving a counter (or some value you want to keep track of without passing that value as an argument to the fn itself) on global scope, you can declare an initial value within the wrapper function, outside the context of the inner function, and mutate that value throughout the calls to the inner fn.
 
 *Example:*
