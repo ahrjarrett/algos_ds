@@ -303,7 +303,7 @@ Steps for Divide & Conquer:
 **[See the solution repo](https://github.com/kuychaco/algoClass/blob/solutions/sorting-algorithms/merge.js)**.
 
 
-## [Quick Sort]
+## Quick Sort
 
 [Slides](http://slides.com/bgando/sorting#/3).
 
@@ -313,6 +313,50 @@ In Merge Sort, the divide step does little, and the hard work happens in the com
 
 The *partition* is the process in which we select our pivot and rearrange all the elements that are greater than, to the right and all the elements that are less than or equal to on the left.
 
+### Step 1: Pick an element to act as the pivot point.
+
+![Pick a pivot point](https://s3.amazonaws.com/media-p.slid.es/uploads/399980/images/1925460/quicksort_1.png)
+
 “In essence what we’re doing is picking a pivot point, usually the first or the last item in an array, and swap out all the elements that are larger and put them to the right, then move all the elements that are smaller to the left”
 
+### Step 2: Partition the array by reorganizing elements.
+
 ![Quick sort in action](https://s3.amazonaws.com/media-p.slid.es/uploads/399980/images/1925462/quicksort_2.png)
+
+*This occurs until the pivot (4, in this example) finds its final place in the big array.*
+
+### Step 3: Recursively apply steps 1 and 2 to the subarrays on either side of the pivot.
+
+![Apply steps 1 and 2 to the subarrays](https://s3.amazonaws.com/media-p.slid.es/uploads/399980/images/1925465/quicksort_3.png)
+
+### Detail: Partition
+
+There are many ways to implement the partition.
+
+Vocab:
+* **Pivot Point:** The element that will eventually be put into the proper index.
+* **Pivot Location:** The pointer that keeps track of where the list is less than on the left and greater than our pivot point on the right. Eventually becomes equal to pivot point when sorted.
+
+### Pseudocode: Quick Sort
+
+```
+partition(arr, lo, hi)
+  choose last element as pivot
+
+  keep track of index for pivotLoc
+  initialized as lo
+
+  for i, loop from low to hi
+    if current arr[i] <= pivot
+      swap pivotLoc and i
+      increment pivotLoc
+```
+
+
+// where 4 is the pivot:
+[3,7...5,4]
+
+// 4 is compared to 3 and is greater
+
+
+[3,5...4,7]
