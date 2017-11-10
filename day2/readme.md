@@ -285,13 +285,34 @@ Selects the first element in an array, considers that our sorted list of size 1.
 
 ## Merge Sort
 
+[Slides](http://slides.com/bgando/sorting#/2).
+
 Whenever you think of cutting things in half, you should be thinking “logarithmic”. But in a lot of cases, the notation is actually `n*log(n)`, because you’re still *merging* the two back together, which has a linear time complexity.
 
 #### Divide & Conquer
 Recursive calls to a subset of the problem
 
 Steps for Divide & Conquer:
-0. Recognize base case
-1. Divide: break problem down during each call
-2. Conquer: do work on each subset
-3. Combine: solutions
+1. Recognize base case
+2. Divide: break problem down during each call
+3. Conquer: do work on each subset
+4. Combine: solutions
+
+**See [mergeSort.js](https://github.com/ahrjarrett/algos_ds/blob/master/day2/mergeSort.js) in this directory for recursive & iterative implementations.**
+
+**[See the solution repo](https://github.com/kuychaco/algoClass/blob/solutions/sorting-algorithms/merge.js)**.
+
+
+## [Quick Sort]
+
+[Slides](http://slides.com/bgando/sorting#/3).
+
+### Concept: Partition
+
+In Merge Sort, the divide step does little, and the hard work happens in the combine step. Quick Sort is the opposite: **all the work is in the divide step**.
+
+The *partition* is the process in which we select our pivot and rearrange all the elements that are greater than, to the right and all the elements that are less than or equal to on the left.
+
+“In essence what we’re doing is picking a pivot point, usually the first or the last item in an array, and swap out all the elements that are larger and put them to the right, then move all the elements that are smaller to the left”
+
+![Quick sort in action](https://s3.amazonaws.com/media-p.slid.es/uploads/399980/images/1925462/quicksort_2.png)
