@@ -283,6 +283,15 @@ Selects the first element in an array, considers that our sorted list of size 1.
 [1, 2, 5, 6, 8]
 ```
 
+## Merge Sort
 
+Whenever you think of cutting things in half, you should be thinking “logarithmic”. But in a lot of cases, the notation is actually `n*log(n)`, because you’re still *merging* the two back together, which has a linear time complexity.
 
-BOOKMARK: Exercises for Elementary Sorting
+#### Divide & Conquer
+Recursive calls to a subset of the problem
+
+Steps for Divide & Conquer:
+0. Recognize base case
+1. Divide: break problem down during each call
+2. Conquer: do work on each subset
+3. Combine: solutions
