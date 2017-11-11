@@ -1,5 +1,7 @@
 # Data Structures & Algorithms
 
+Bookmark: Binary Serach 01 (11/11/17)
+
 * Day 1: Recursions & OO
 * Day 2: Time Complexity, Sorting
 * Day 3: Trees & Searching Algorithms
@@ -35,3 +37,19 @@ Further study on Sorting Algorithms: **Non-Comparison Sorts**
 1. [Radix Sort](https://www.youtube.com/watch?v=YXFI4osELGU)
 2. [Counting Sort](https://www.youtube.com/watch?v=TTnvXY82dtM)
 3. [Bucket Sort](https://www.youtube.com/watch?v=geVyIsFpxUs)
+
+
+Common use cases for Stacks (LIFO) & Queues (FIFO):
+
+**Stack**
+1. Backtracking in a maze
+2. Undo Operations
+3. Call Stacks
+4. Parsing Expressions
+5. *Depth First* Search
+
+**Queue**
+1. Pop-up Messages
+2. Events
+3. HTTP Requests
+4. *Breadth First* Search
