@@ -1,6 +1,6 @@
 ## Data Structures & Algorithms
 
-* Day 1: Recurious & OO
+* Day 1: Recursions & OO
 * Day 2: Time Complexity, Sorting
 * Day 3: Trees & Searching Algorithms
 * Day 4: Hash Tables & Hashing
