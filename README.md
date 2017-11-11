@@ -1,4 +1,4 @@
-## Data Structures & Algorithms
+# Data Structures & Algorithms
 
 * Day 1: Recursions & OO
 * Day 2: Time Complexity, Sorting
@@ -9,11 +9,11 @@
 ### Exercises:
 
 * Day 1: Implemented Stack & Queue; there are still exercises at the bottom of Queue.js
-* Day 2: Quick Sort works; definitely need to review sorting algorithms.
-* Day 3: Trees & Linked Lists so far.
+* Day 2: Quick Sort works; definitely need to review sorting algorithms
+* Day 3: Binary Trees & Linked Lists
 
 
-# Review:
+## Review:
 
 Time Complexity of Common Operations:
 
@@ -30,3 +30,8 @@ Time Complexity of Common Operations:
 Check out [Big-O Cheat Sheet](http://bigocheatsheet.com/) for a crazy breakdown and tons of good stuff (and an svg rendered graph, screenshot below):
 
 ![Big-O Complexity Chart](https://github.com/ahrjarrett/algos_ds/blob/master/day3/Screen%20Shot%202017-11-10%20at%2010.28.44%20PM.png)
+
+Further study on Sorting Algorithms: **Non-Comparison Sorts**
+1. [Radix Sort](https://www.youtube.com/watch?v=YXFI4osELGU)
+2. [Counting Sort](https://www.youtube.com/watch?v=TTnvXY82dtM)
+3. [Bucket Sort](https://www.youtube.com/watch?v=geVyIsFpxUs)
