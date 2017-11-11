@@ -37,3 +37,42 @@ Each node in the list contains:
 Inserting a newNode in between, say, node A and B, happens in **constant time**. This is because we don’t have to change anything besides updating A’s reference to B to point to newNode, and newNode’s pointer to reference node B.
 
 Compared to an array, for example, this same operation (assuming we’re not adding to the end) happens in **linear time** because we need to shift all the elements to accommodate the new one.
+
+### Interface: Linked List
+
+1. Constructor Function
+* storage
+* head
+
+2. Methods
+* `.addToTail(val) // adds node to tail`
+* `.remove(node) // removes node from list and returns it`
+
+### Pseudocode: Linked List
+
+```
+// Node constructor
+  //this.value
+  //this.next = null
+
+// Constructor function, takes value
+  new Node(value)
+  set head, node
+  set tail, node
+
+// Add to tail(value)
+  create node from value
+  set tail’s next to node
+  update the LL tail to new node
+
+// Remove node(node)
+  set parent to head
+  while parent’s next is not null or node
+    parent is parent.next
+  when found, set parent.next to child’s / node’s next
+
+```
+
+Site note on null vs. undefined: “It’s a best practice to set things to null, and let the computer set things to undefined. That way you know the programmer put it there purposefully.”
+
+See [implementation of a Linked List]() in this directory.
