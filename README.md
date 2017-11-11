@@ -1,4 +1,4 @@
-## Data Structures and Algorithms Coursework
+## Data Structures & Algorithms
 
 * Day 1: Recurious & OO
 * Day 2: Time Complexity, Sorting
@@ -10,4 +10,6 @@
 
 * Day 1: Implemented Stack & Queue; there are still exercises at the bottom of Queue.js
 
-* Day 2: Stopped at lunch after elementary sorting algorithms.
+* Day 2: Quick Sort works; definitely need to review sorting algorithms.
+
+* Day 3: Trees & Linked Lists so far.
