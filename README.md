@@ -31,4 +31,4 @@ Time Complexity of Common Operations:
 
 Check out [Big-O Cheat Sheet](http://bigocheatsheet.com/) for a crazy breakdown and tons of good stuff (and an svg rendered graph, screenshot below):
 
-![Big-O Complexity Chart]()
+![Big-O Complexity Chart](https://github.com/ahrjarrett/algos_ds/blob/master/day3/Screen%20Shot%202017-11-10%20at%2010.28.44%20PM.png)
