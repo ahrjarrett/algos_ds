@@ -75,4 +75,85 @@ Compared to an array, for example, this same operation (assuming we’re not add
 
 Site note on null vs. undefined: “It’s a best practice to set things to null, and let the computer set things to undefined. That way you know the programmer put it there purposefully.”
 
-See [implementation of a Linked List]() in this directory.
+See [implementation of a Linked List](https://github.com/ahrjarrett/algos_ds/blob/master/day3/LinkedList.js) in the current directory.
+
+
+```javascript
+// Excerpt from that file:
+function Node(value) {
+  this.next = null
+  this.value = value
+}
+
+function LinkedList(headValue) {
+  if (headValue === undefined) console.log('Must provide value for first node')
+  this.head = new Node(headValue)
+  // We initialize tail as head b/c when list contains 1 item,
+  // that item is both head and tail.
+  this.tail = this.head
+}
+
+LinkedList.prototype.forEach = function(callback) {
+  var node = this.head
+  while(node) {
+    callback(node.value)
+    node = node.next
+  }
+}
+// Time complexity:
+// O(n)
+
+LinkedList.prototype.print = function() {
+  var result = []
+  this.forEach(function(value) {
+    result.push(value)
+  })
+  return result.join(', ')
+}
+// Time complexity:
+// O(n)
+
+LinkedList.prototype.insertAfter = function(node, value) {
+  // get reference to former next
+  var oldNext = node.next
+  // create new node
+  var newNext = new Node(value)
+  // store it as the next next
+  node.next = newNext
+  // set next for the new node to be the old next
+  newNext.next = oldNext
+  // if reference node is tail, set tail to newNext
+  if(this.tail === node) this.tail = newNext
+  return newNext
+  // alternate solution (i think i like this one better):
+  //var newNode = new Node(value)
+  //newNode.next = node.next
+  //node.next = newNode
+  //return newNext
+}
+// Time complexity:
+// O(1)
+
+```
+
+### ...back to trees proper:
+
+A difference between trees and linked lists is that linked lists can be circular. The tail can point back to the head, and that’s perfectly acceptable (reminds me of the circular buffer exercise on exorcism).
+
+Trees, on the other hand, cannot. Trees cannot have a circular loop. That would be an incorrect implementation of a tree.
+
+With a tree we hold references from parent to child (not the other way around), so references flow in one direction. There are also multiple nodes that a single node can reference.
+
+### Pseudocode: Tree
+
+```
+// Tree constructor
+  //this.value
+  //this.children = []
+
+//Constructor function, takes value
+  //new Node(value)
+  //set root (instead of head), node
+
+//Add node (value)
+```
