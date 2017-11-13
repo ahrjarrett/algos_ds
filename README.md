@@ -5,8 +5,9 @@ Bookmark: Binary Serach 01 (11/11/17)
 * Day 1: Recursions & OO
 * Day 2: Time Complexity, Sorting
 * Day 3: Trees & Searching Algorithms
-* Day 4: Hash Tables & Hashing
-* Day 5: Advanced Applications & Optimizations
+* Day 4: Binary Tree Search
+* Day 5: Hash Tables & Hashing
+* Day 6: Advanced Applications & Optimizations
 
 ### Exercises:
 
