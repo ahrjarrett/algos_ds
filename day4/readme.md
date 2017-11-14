@@ -106,4 +106,15 @@ contains(value) // => true/false
   return false
 ```
 
-See [implementation of BST contains]().
+See [implementation of BST contains](https://github.com/ahrjarrett/algos_ds/blob/master/day4/binarySearchTree.js).
+
+**Note:** Notice how we’re using `&&` as a *“gate”* when implementing `contains`. We can think of it this way because the second half (the recursive call) won’t even run if the first value (`!!this.left` and `!!this.right`)) evaluates to false.
+
+On the other hand, `||` functions as a *“default”* value if the first half evaluates to false.
+
+
+## Exploring BSTs
+
+“Exploring” a binary search tree means looking at/touching every node in a tree (looking up every item in an array, going from head to tail on a linked list, etc.).
+
+There are 3 different kinds of traversals: `in-order`, `preorder`, and `post order`.
