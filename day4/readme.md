@@ -117,4 +117,22 @@ On the other hand, `||` functions as a *“default”* value if the first half e
 
 “Exploring” a binary search tree means looking at/touching every node in a tree (looking up every item in an array, going from head to tail on a linked list, etc.).
 
-There are 3 different kinds of traversals: `in-order`, `preorder`, and `post order`.
+There are 3 different kinds of traversals:
+
+1. `in-order`
+2.`preorder`
+3. `post order`
+
+These traversals happen in **linear time**, which makes sense.
+
+### How do we (typically) explore the following data structures?
+* Linked List — `while` loop
+* Array — `for` loop
+* Object — `for in` loop
+* Stack/Queue — trick question; you’re not supposed to “explore” these data structures
+
+## In-Order Traversal
+
+Looks like this:
+
+![In-Order Traversal](https://s3.amazonaws.com/media-p.slid.es/uploads/195658/images/2754258/pasted-from-clipboard.png)

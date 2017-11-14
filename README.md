@@ -1,6 +1,6 @@
 # Data Structures & Algorithms
 
-Bookmark: Binary Serach 01 (11/11/17)
+Bookmark: Binary Trees 09 (11/14/17)
 
 * Day 1: Recursions & OO
 * Day 2: Time Complexity, Sorting
