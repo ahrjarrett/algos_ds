@@ -62,7 +62,6 @@ Common use cases for Stacks (LIFO) & Queues (FIFO):
 
 ## Binary Search Trees
 
-See the [notes here]() and the data structure implementation [here](). Writing the BST is easy and elegant with recursion!
+See the **[notes here](https://github.com/ahrjarrett/algos_ds/tree/master/day4)** and the **[data structure implementation here]**(https://github.com/ahrjarrett/algos_ds/blob/master/day4/binarySearchTree.js). Writing the BST is easy and elegant with recursion!
 
 ![Binary Search Tree GIF](https://github.com/ahrjarrett/algos_ds/blob/master/day4/bst.gif)
-
