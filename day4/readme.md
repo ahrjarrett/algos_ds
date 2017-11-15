@@ -120,7 +120,7 @@ On the other hand, `||` functions as a *“default”* value if the first half e
 There are 3 different kinds of traversals:
 
 1. `in-order`
-2.`preorder`
+2. `preorder`
 3. `post order`
 
 These traversals happen in **linear time**, which makes sense.
@@ -223,3 +223,8 @@ postOrderTraverse(fn)
 
 
 Please see the [implementation of Binary Search Tree](https://github.com/ahrjarrett/algos_ds/blob/master/day4/binarySearchTree.js) to see how these recursive searches work under the hood!
+
+
+## Deleting Nodes from a BST
+
+[Slides](http://slides.com/bgando/bst#/3)

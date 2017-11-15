@@ -73,21 +73,38 @@ BinarySearchTree.prototype.contains = function(value) {
   return false
 }
 
+// Pseudocode for traverseDepthFirst_inOrder:
+//inOrderTraverse(fn)
+//  this.value // === 11
+//  if(!!this.left)
+//    inOrderTraverse(this.left)
+//  // Side effects:
+//  fn(this.value)
+//  if(!!this.right)
+//    inOrderTraverse(this.right)
+//  return undefined
+
+// Time complexity: O(n)
 BinarySearchTree.prototype.traverseDepthFirst_inOrder = function(fn) {
-  // implement me...
+  if(!this.left && !this.right) return fn(this)
+  if(this.left) this.left.traverseDepthFirst_inOrder(fn)
+  fn(this)
+  if(this.right) this.right.traverseDepthFirst_inOrder(fn)
 }
-// Time complexity:
 
+// Time complexity: O(n)
 BinarySearchTree.prototype.traverseDepthFirst_preOrder = function(fn) {
-  // implement me...
+  fn(this)
+  if(this.left) this.left.traverseDepthFirst_preOrder(fn)
+  if(this.right) this.right.traverseDepthFirst_preOrder(fn)
 }
-// Time complexity:
 
+// Time complexity: O(n)
 BinarySearchTree.prototype.traverseDepthFirst_postOrder = function(fn) {
-  // implement me...
+  if(this.left) this.left.traverseDepthFirst_postOrder(fn)
+  if(this.right) this.right.traverseDepthFirst_postOrder(fn)
+  fn(this)
 }
-// Time complexity:
-
 
 BinarySearchTree.prototype.checkIfFull = function() {
   // implement me...

@@ -1,6 +1,6 @@
 # Data Structures & Algorithms
 
-Bookmark: Binary Trees 09 (11/14/17)
+Bookmark: Binary Trees 14 (11/15/17)
 
 * Day 1: Recursions & OO
 * Day 2: Time Complexity, Sorting
@@ -14,9 +14,10 @@ Bookmark: Binary Trees 09 (11/14/17)
 * Day 1: Implemented Stack & Queue; there are still exercises at the bottom of Queue.js
 * Day 2: Quick Sort works; definitely need to review sorting algorithms
 * Day 3: Binary Trees & Linked Lists
+* Day 4: TODO: Implement Delete methods (09/#14)
 
 
-## Review:
+## Time Complexity
 
 Time Complexity of Common Operations:
 
@@ -33,6 +34,9 @@ Time Complexity of Common Operations:
 Check out [Big-O Cheat Sheet](http://bigocheatsheet.com/) for a crazy breakdown and tons of good stuff (and an svg rendered graph, screenshot below):
 
 ![Big-O Complexity Chart](https://github.com/ahrjarrett/algos_ds/blob/master/day3/Screen%20Shot%202017-11-10%20at%2010.28.44%20PM.png)
+
+
+## Sorting
 
 Further study on Sorting Algorithms: **Non-Comparison Sorts**
 1. [Radix Sort](https://www.youtube.com/watch?v=YXFI4osELGU)
@@ -54,3 +58,11 @@ Common use cases for Stacks (LIFO) & Queues (FIFO):
 2. Events
 3. HTTP Requests
 4. *Breadth First* Search
+
+
+## Binary Search Trees
+
+See the [notes here]() and the data structure implementation [here](). Writing the BST is easy and elegant with recursion!
+
+![Binary Search Tree GIF](https://github.com/ahrjarrett/algos_ds/blob/master/day4/bst.gif)
+
