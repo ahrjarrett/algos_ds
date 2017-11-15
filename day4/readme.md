@@ -168,6 +168,15 @@ traverse(fn)
   return undefined
 ```
 
-At first, the control flow confused me: Why are we only calling the `fn` after traversing `this.left`? Wouldn’t we need to mutate the result of traversing `this.right`, too?
+> At first, the control flow confused me: Why are we only calling the `fn` after traversing `this.left`? Wouldn’t we need to mutate the result of traversing `this.right`, too?
 
-The reason we only call the function on `this.value` is because we also reach this point in the function call at the end of calling `this.right`, because *every invocation of `traverse` will also check `if(!!this.left)`*, and when that statement finally returns false, we know we have reached a leaf. When that call is popped off the stack, **we then back up to call the function on every value of the node.
+> The reason we only call the function on `this.value` is because we also reach this point in the function call at the end of calling `this.right`, because *every invocation of `traverse` will also check `if(!!this.left)`*, and when that statement finally returns false, we know we have reached a leaf. When that call is popped off the stack, **we then back up to call the function on every value of the node.
+
+
+## Pre-Order Traversal
+
+[Slides](http://slides.com/bgando/bst#/2/4)
+
+![Pre-Order Traversal](http://slides.com/bgando/bst#/2/)
+
+**Talking it out:** For an In-Order traversal, our order was something like: Go left, call `fn` on self, go right. If we think of it that way, then the Pre-Order traversal is more like: Call `fn` on self, then go left, then go right.
