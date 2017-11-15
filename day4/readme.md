@@ -136,3 +136,38 @@ These traversals happen in **linear time**, which makes sense.
 Looks like this:
 
 ![In-Order Traversal](https://s3.amazonaws.com/media-p.slid.es/uploads/195658/images/2754258/pasted-from-clipboard.png)
+
+### Pseudocode for In-Order Traversal
+
+```
+traverse(fn):
+  this.value // === 11
+  when !!this.left && !!this.right return
+  traverse(this.left) // === 7
+  // =========== // this is where we pause, and will resume after traversing down the left:
+  fn(this.value)
+  traverse(this.right)
+  //...
+  //...
+```
+But there is a bug in the above code: we’re not handling the base case properly. The `fn` arg is never called on the leaf nodes.
+
+We can solve the problem by rewriting our pseudocode like this:
+
+```javascript
+traverse(fn)
+  this.value // === 11
+  if(!!this.left)
+    traverse(this.left)
+  // Side effects:
+  fn(this.value)
+
+  if(!!this.right)
+    traverse(this.right)
+
+  return undefined
+```
+
+At first, the control flow confused me: Why are we only calling the `fn` after traversing `this.left`? Wouldn’t we need to mutate the result of traversing `this.right`, too?
+
+The reason we only call the function on `this.value` is because we also reach this point in the function call at the end of calling `this.right`, because *every invocation of `traverse` will also check `if(!!this.left)`*, and when that statement finally returns false, we know we have reached a leaf. When that call is popped off the stack, **we then back up to call the function on every value of the node.
