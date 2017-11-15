@@ -177,7 +177,7 @@ inOrderTraverse(fn)
 
 [Slides](http://slides.com/bgando/bst#/2/4)
 
-![Pre-Order Traversal](http://slides.com/bgando/bst#/2/)
+![Pre-Order Traversal](https://s3.amazonaws.com/media-p.slid.es/uploads/195658/images/2754261/pasted-from-clipboard.png)
 
 *Talking it out:* For an In-Order traversal, our order was something like: Go left, call `fn` on self, go right. If we think of it that way, then the Pre-Order traversal is more like: **Call `fn` on self, then go left, then go right**.
 
@@ -201,7 +201,7 @@ preOrderTraverse(fn)
 
 [Slides](http://slides.com/bgando/bst#/2/5)
 
-![Post-Order Traversal](http://slides.com/bgando/bst#/2/5)
+![Post-Order Traversal](https://s3.amazonaws.com/media-p.slid.es/uploads/195658/images/2754262/pasted-from-clipboard.png)
 
 What is Post-Order? The pattern is **Left, Right, Self**.
 
