@@ -155,22 +155,22 @@ But there is a bug in the above code: we’re not handling the base case properl
 We can solve the problem by rewriting our pseudocode like this:
 
 ```javascript
-traverse(fn)
+inOrderTraverse(fn)
   this.value // === 11
   if(!!this.left)
-    traverse(this.left)
+    inOrderTraverse(this.left)
   // Side effects:
   fn(this.value)
 
   if(!!this.right)
-    traverse(this.right)
+    inOrderTraverse(this.right)
 
   return undefined
 ```
 
 > At first, the control flow confused me: Why are we only calling the `fn` after traversing `this.left`? Wouldn’t we need to mutate the result of traversing `this.right`, too?
 
-> The reason we only call the function on `this.value` is because we also reach this point in the function call at the end of calling `this.right`, because *every invocation of `traverse` will also check `if(!!this.left)`*, and when that statement finally returns false, we know we have reached a leaf. When that call is popped off the stack, **we then back up to call the function on every value of the node.
+> The reason we only call the function on `this.value` is because we also reach this point in the function call at the end of calling `this.right`, because *every invocation of `traverse` will also check `if(!!this.left)`*, and when that statement finally returns false, we know we have reached a leaf. When that call is popped off the stack, **we then back up to call the function on every value of the node**.
 
 
 ## Pre-Order Traversal
@@ -179,4 +179,47 @@ traverse(fn)
 
 ![Pre-Order Traversal](http://slides.com/bgando/bst#/2/)
 
-**Talking it out:** For an In-Order traversal, our order was something like: Go left, call `fn` on self, go right. If we think of it that way, then the Pre-Order traversal is more like: Call `fn` on self, then go left, then go right.
+*Talking it out:* For an In-Order traversal, our order was something like: Go left, call `fn` on self, go right. If we think of it that way, then the Pre-Order traversal is more like: **Call `fn` on self, then go left, then go right**.
+
+### Pseudocode for Pre-Order Traversal
+
+```
+Pattern: Self, Left, Right
+preOrderTraverse(fn)
+  fn(this.value)
+
+  if(!!this.left)
+    preOrderTraverse(this.left)
+
+  if(!!this.right)
+    preOrderTraverse(this.right)   
+
+```
+
+
+## Post-Order Traversal
+
+[Slides](http://slides.com/bgando/bst#/2/5)
+
+![Post-Order Traversal](http://slides.com/bgando/bst#/2/5)
+
+What is Post-Order? The pattern is **Left, Right, Self**.
+
+### Pseudocode for Post-Order Traversal:
+
+```
+postOrderTraverse(fn)
+  if(!!this.left)
+    postOrderTraverse(this.left)
+
+  if(!!this.right)
+    postOrderTraverse(this.right)
+
+
+  fn(this.value)
+```
+
+> *Note:* All of these functions are considered **depth-first** traversals, and only specify where the transformation occurs. Also note, the pseudocode for these implementations assumes side-effects; the name only informs us *where* the transformation takes place.
+
+
+Please see the [implementation of Binary Search Tree](https://github.com/ahrjarrett/algos_ds/blob/master/day4/binarySearchTree.js) to see how these recursive searches work under the hood!
