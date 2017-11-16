@@ -306,6 +306,7 @@ BinarySearchTree.prototype.deleteMin = function(parent) {
     }
   }
   if (this.left) this.left.deleteMin(this)
+  return this
 }
 ```
 
@@ -316,3 +317,202 @@ Talking through the control flow:
 * Else if there is no left but there is a right, and there *is* a parent, then update the parent’s left to reference the current node’s right; otherwise, you’re at the root node and *the root is the minimum*, so update this’s value (the root node) to the value of the tree’s right branch, which is now the new root node. Don’t forget to reassign the new root’s right to reference the rest of the right branch).
 
 * No matter which branch runs, we still enter another conditional, which states: If there is a left, recursively call this function on the left branch, passing **this** *(which in this case, represents the left branch)* as the argument. This is how we approach our base case.
+
+### What about Delete Max?
+
+This is actually really easy. We invert the control flow entirely by swapping `right` and `left`:
+
+```javascript
+BinarySearchTree.prototype.deleteMax(parent) {
+  if (!this.right && !this.left) {
+    if (parent) parent.right = null
+    else this.value = null // case the max val is the last node
+  }
+  else if (!this.right && this.left) {
+    if (parent) parent.right = this.right
+    else { // case the max value is the root with a subtree
+      this.value = this.left.value
+      this.left = this.left.left
+    }
+  }
+  if (this.right) this.right.deleteMax(this)
+  return this // for chaining
+}
+```
+
+Don’t forget to `return this` to make the method chainable.
+
+And that’s delete min and delete max. Keep in mind, this is just a simplified version of deleting a particular node; we could also implement a “delete node” method that takes a reference to a specific node for deletion.
+
+
+### Deleting a Node from a BST
+
+**3 Cases:**
+
+1. When the node is a leaf node (remove the pointer from the parent)
+2. When the node has 1 child (move child node up to as the new parent)
+3. When the node has 2 children
+
+
+Let’s write the pseudocode:
+
+```
+deleteNode(val)
+  search for node/val
+    check if current val equals val
+      if so, delete(val, current) // new parent
+      else search(val)
+==========
+delete(val, parent)
+  if it’s a root
+    ...
+  else
+    check if it is a leaf, if so
+      delete it
+        which pointer do we make null? // tricky
+        if the parent’s left = val, then set that one...
+
+
+//Rewriting delete:
+delete(val, parent)
+  if it’s a root
+    //account for this!
+
+  else
+    set PRD = relationship from parent (L | R) // alternatively, “pre-race dump”
+    case 1 is a leaf
+      if so, delete it:
+        set pointer (PRDN) to null
+        parent['right'] = null // we’ll save this value in a “position” variable
+    case 2 has 1 node (or child)
+      check if current node has L or R child
+        set PRDN to this.left | this.right
+        parent['right'] = this.left | this.right
+    case 3 has 2 nodes (children)
+      // what do we do now?
+```
+
+![Case 2 Child Nodes](https://s3.amazonaws.com/media-p.slid.es/uploads/195658/images/2757478/pasted-from-clipboard.png)
+
+This solution gets pretty tricky. [Here is a blog post about how to handle `case 2 children`](https://www.nczonline.net/blog/2009/06/16/computer-science-in-javascript-binary-search-tree-part-2/), all coded out for us. And here’s the code from Nicolas Zaka’s solution:
+
+```javascript
+BinarySearchTree.prototype = {
+
+    //more code here
+
+    remove: function(value){
+
+        var found       = false,
+            parent      = null,
+            current     = this._root,
+            childCount,
+            replacement,
+            replacementParent;
+
+        //find the node (removed for space)
+
+        //only proceed if the node was found
+        if (found){
+
+            //figure out how many children
+            childCount = (current.left !== null ? 1 : 0) +
+                         (current.right !== null ? 1 : 0);
+
+            //special case: the value is at the root
+            if (current === this._root){
+                switch(childCount){
+
+                    //other cases removed to save space
+
+                    //two children, little work to do
+                    case 2:
+
+                        //new root will be the old root's left child
+                        //...maybe
+                        replacement = this._root.left;
+
+                        //find the right-most leaf node to be
+                        //the real new root
+                        while (replacement.right !== null){
+                            replacementParent = replacement;
+                            replacement = replacement.right;
+                        }
+
+                        //it's not the first node on the left
+                        if (replacementParent !== null){
+
+                            //remove the new root from it's
+                            //previous position
+                            replacementParent.right = replacement.left;
+
+                            //give the new root all of the old
+                            //root's children
+                            replacement.right = this._root.right;
+                            replacement.left = this._root.left;
+                        } else {
+
+                            //just assign the children
+                            replacement.right = this._root.right;
+                        }
+
+                        //officially assign new root
+                        this._root = replacement;
+
+                    //no default
+
+                }        
+
+            //non-root values
+            } else {
+
+                switch (childCount){
+
+                    //other cases removed to save space
+
+                    //two children, a bit more complicated
+                    case 2:
+
+                        //reset pointers for new traversal
+                        replacement = current.left;
+                        replacementParent = current;
+
+                        //find the right-most node
+                        while(replacement.right !== null){
+                            replacementParent = replacement;
+                            replacement = replacement.right;
+                        }
+
+                        replacementParent.right = replacement.left;
+
+                        //assign children to the replacement
+                        replacement.right = current.right;
+                        replacement.left = current.left;
+
+                        //place the replacement in the right spot
+                        if (current.value < parent.value){
+                            parent.left = replacement;
+                        } else {
+                            parent.right = replacement;
+                        }          
+
+                    //no default
+
+                }
+
+            }
+
+        }
+
+    },
+
+    //more code here
+
+};
+```
+
+##### Further Study: Balances BSTs
+
+* AVL Tree
+* Red-Black Tree
+* Splay Tree
