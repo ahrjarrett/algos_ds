@@ -228,3 +228,50 @@ Please see the [implementation of Binary Search Tree](https://github.com/ahrjarr
 ## Deleting Nodes from a BST
 
 [Slides](http://slides.com/bgando/bst#/3)
+
+Talking Min/Max deletion: At first glance, it would seem like just going left and deleting the leftmost node would work; but what about after we delete the 3 in the diagram above? At that point, *5 is the smallest value* even though it has no `this.left`. Also, keep in mind that if we remove the 5, we need to reassign the value of 7 to take its place in order for the tree to remain sorted.
+
+In order to do this, **we have to pass the parent down for recursive calls**.
+
+### Pseudocode for Delete Min:
+
+```
+deleteMin(parent)
+  if(!this.left && !this.right)
+    parent.left = null
+  if(!this.left && this.right)
+    parent.left = this.right
+  // remember, the `this` we pass deleteMin becomes the parent in the next call:
+  if(this.left) this.left.deleteMin(this)
+
+tree.deleteMin()
+```
+
+But are we solving for when the minimum value is also the root node? What if we had a BST of this structure:
+
+```
+bst =
+{ val: 7, left: null, right:
+  { val: 8, left: null, right:
+    { val: 9, left: null, right:
+      // ... ...
+    }
+  }
+}
+```
+
+In this case, we need to check to see if there is no parent, since the root node by definition has no parent.
+
+`if(!this.parent) /* ... */ `
+
+In this case, how do we update the tree to reflect this transformation?
+
+*One way to solve this is by setting the value of the tree to this.right.*
+
+How would this look in code? From the outside, this transformation looks like this:
+
+```
+bst = bst.right
+```
+
+But how do we do this from inside the fn call? The answer: **By mutating the value of `this` to be `this.right`**.
