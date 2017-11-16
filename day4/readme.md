@@ -247,7 +247,9 @@ deleteMin(parent)
 tree.deleteMin()
 ```
 
-But are we solving for when the minimum value is also the root node? What if we had a BST of this structure:
+#### Edge Cases for Delete Min/Max
+
+1. But are we solving for when the minimum value is also the root node? What if we had a BST of this structure:
 
 ```
 bst =
@@ -264,14 +266,53 @@ In this case, we need to check to see if there is no parent, since the root node
 
 `if(!this.parent) /* ... */ `
 
-In this case, how do we update the tree to reflect this transformation?
-
-*One way to solve this is by setting the value of the tree to this.right.*
-
-How would this look in code? From the outside, this transformation looks like this:
+In this case, how do we update the tree to reflect this transformation? *One way to solve this is by setting the value of the tree to this.right.* How would this look in code? From the outside, this transformation looks like this:
 
 ```
 bst = bst.right
 ```
 
-But how do we do this from inside the fn call? The answer: **By mutating the value of `this` to be `this.right`**.
+But how do we do this from inside the fn call? The answer: **By mutating the value of `this` to be `this.right`** from within the function itself.
+
+```javascript
+deleteMin(parent)
+  if(!this.parent && !this.left) this = this.right
+  // ...
+```
+
+The actual implementation of this might be different, depending on how you structure the control flow for the rest of the function.
+
+2. What if the minimum element is also the only element?
+
+This is simple enough; we could simply set the value of `this` to be null. This is a good solution for if we don’t care about thie BST anymore, and want it to be garbage collected. But what if we still want to add nodes/leaves later on? In this case, we need to preserve the structure of `this.left` and `this.right`, so we can set these values later. The final shape of the BST might then be:
+
+```javascript
+bst = { val: null, left: null, right: null }
+```
+
+So in the end, a quick-and-dirty `deleteMin` might look like this:
+
+```javascript
+BinarySearchTree.prototype.deleteMin = function(parent) {
+  if (!this.left && !this.right) {
+    if (parent) parent.left = null
+    else this.value = null
+  }
+  else if (!this.left && this.right) {
+    if (parent) parent.left = this.right
+    else {
+      this.value = this.right.value
+      this.right = this.right.right
+    }
+  }
+  if (this.left) this.left.deleteMin(this)
+}
+```
+
+Talking through the control flow:
+
+* If there is no left and there is no right, and there *is* a parent, then nullify the left tree; otherwise, nullify the current value (the root node). This preserves the tree structure, in case we want to add to it later.
+
+* Else if there is no left but there is a right, and there *is* a parent, then update the parent’s left to reference the current node’s right; otherwise, you’re at the root node and *the root is the minimum*, so update this’s value (the root node) to the value of the tree’s right branch, which is now the new root node. Don’t forget to reassign the new root’s right to reference the rest of the right branch).
+
+* No matter which branch runs, we still enter another conditional, which states: If there is a left, recursively call this function on the left branch, passing **this** *(which in this case, represents the left branch)* as the argument. This is how we approach our base case.
