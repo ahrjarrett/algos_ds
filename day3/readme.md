@@ -25,7 +25,7 @@ Methods:
 
 ### Concept: Linked Lists
 
-A linked list is a simplified tree DS. A LL is a tree structure with only one child per node.
+A linked list is a simplified tree. A LL is a tree structure with only one child per node.
 
 Each node in the list contains:
 
