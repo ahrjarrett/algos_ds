@@ -1,0 +1,78 @@
+#+TITLE: Day 6: Hash Tables
+#+AUTHOR: Andrew Jarrett
+#+EMAIL: ahrjarrett@gmail.com
+
+Day 6 we focused on Hash Tables. Here are the [[http://slides.com/bgando/hash-tables/#/][slides]].
+
+* Hash Tables
+
+** *Concept:* JavaScript objects are hash tables. 
+
+Represented as key/value pairs.
+
+A hashing function /maps the key to an index/.
+
+This lookup is done in *constant time*, or =O(1)=. 
+
+*Record Player metaphor:* This is an oversimplification, but we can think of this lookup process like moving a needle. In other words, when we query a hash table for a key, we've already stored the index for that key somewhere, so all we're doing is /moving the needle/ to that key and performing the lookup at that point.
+
+In fact, under the hood, Arrays themselves are secretly hash tables. Arrays are simply objects where the indices are numerical.
+
+** *Concept:* A Hashing Function.
+
+A hashing function takes an input of any size and returns a hash code identifier of a fixed size.
+
+#+BEGIN_SRC js
+myHash('this is a really really really really long string') // => 7
+myHash('i\'m pretty short') // => 11
+#+END_SRC
+
+** Pseudocode: Hashing Function
+
+#+BEGIN_SRC js
+  // Write a function that takes an input and always returns the same output
+
+  function myHash(key) {
+      // 1. ascii value of each character
+      // 2. add/multiply them together
+      // 3. return as hex instead of decimal (.toString(16))
+  }
+
+  myHash(input)
+  "Hello Are we there yet?" // => 2342z1
+  "Hello Are we there yet?" // => 2342z1
+  "Some other value!!" // => 1295a9
+  "Some other value!!" // => 1295a9
+
+#+END_SRC
+
+** Key Components of a Hash Table
+
+*** Problems to solve:
+
+- Storage
+- Hashing Function
+
+*** Operations:
+
+- =myHashTable.set(prop, val)=
+- =myHashTable.get(prop)=
+- =myHashTable.remove(prop)=
+
+** Pseudocoding =set()=, =get()= and =remove()=
+
+Let's pseudocode out a hash table!
+
+#+BEGIN_SRC js
+  Constructor
+    storage = [undefined, undefined, undefined, undefined, undefined]
+  hashFn(v) => index for the array // constraint: hashFn has to return 0-4
+#+END_SRC
+
+
+
+
+
+
+
+

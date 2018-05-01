@@ -1,0 +1,50 @@
+#+TITLE: Time Complexity, Sorting
+
+Day 2: Time Complexity, Sorting
+
+* Intro to Time Complexity
+
+[[9941e2b7-13f7-4df0-a620-128bfb81df00][Slides]]
+
+What makes an algorithm “fast”?
+
+#+BEGIN_QUOTE
+“What is the run time of this algorithm?”
+#+END_QUOTE 
+
+** Complexity
+
+*** Space Complexity
+
+How much /memory/ is used?
+
+*** Time Complexity 
+
+How many *comparisons* are made?
+How many *swaps* are made?
+
+How does the work increase as our input grows? That is the speed of our algorithm.
+
+| # of Operations | Algorithm                      |
+|-----------------+--------------------------------|
+| =n^2=           | Compare all numbers            |
+| =2n=            | Find min and max numbers       |
+| =3=             | Sorted List, find 1st and last |
+
+We can represent time as shape using [[https://en.wikipedia.org/wiki/Big_o_notation][Big O Notation]].
+
+This is a notation that describes the limiting behavior of a function when the argument tends toward a particular value or infinity. This is known as the Order of the function and is closely related to *o*, Ω, ω, and Θ.
+
+| Big-O, name       | # of Operations | Algorithm                      |
+|-------------------+-----------------+--------------------------------|
+| O(n^2), quadratic | n^2             | Compare all numbers            |
+| O(n), linear      | 2n              | Find min and max numbers       |
+| O(1), constant    | 3               | Sorted List, find 1st and last |
+
+Ordered slow to fast:
+
+| Name       | constant | logarithmic | linear | quadratic | exponential |
+|------------+----------+-------------+--------+-----------+-------------|
+| *Notation* | O(1)     | O(logn)     | O(n)   | O(n^2)    | O(k^n)      |
+
+Anything past linear is considered a bad algorithm. You really don’t want to be in quadratic or exponential time.
